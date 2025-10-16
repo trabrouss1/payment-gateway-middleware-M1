@@ -21,19 +21,19 @@ spring:
   # ===========================
   # Database Configuration
   # ===========================
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/accounting_db
-    username: root
-    password: root
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/accounting_db
+#    username: root
+#    password: root
 
   # ===========================
   # JPA / Hibernate Configuration
   # ===========================
-  jpa:
+#  jpa:
 #    show-sql: true
-    hibernate:
-      ddl-auto: update
+#    hibernate:
+#      ddl-auto: update
 #      naming:
 #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 #    properties:
