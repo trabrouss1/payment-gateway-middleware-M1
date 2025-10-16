@@ -1,0 +1,49 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: accounting-service
+
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:9999}
+
+  # ===========================
+  # Kafka Configuration
+  # ===========================
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: accounting-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  # ===========================
+  # Database Configuration
+  # ===========================
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/accounting_db
+    username: root
+    password: root
+
+  # ===========================
+  # JPA / Hibernate Configuration
+  # ===========================
+  jpa:
+#    show-sql: true
+    hibernate:
+      ddl-auto: update
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQL15Dialect
+
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    hostname: localhost
