@@ -1,4 +1,4 @@
-package ci.trabrouss.paymentservice.config;
+package ci.trabrouss.orchestratorservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +24,6 @@ public class SecurityConfig {
             "/actuator/**",
             "/swagger-ui.html",
             "/auth/login",
-            "/transactions-notification/**",
             "/auth/refresh-token"
     };
 
