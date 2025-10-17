@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
@@ -35,7 +33,7 @@ services:
       context: ./eureka-server
       dockerfile: Dockerfile
     image: eureka-server:latest
-    container_name: eureka-server
+    container_name: discovery-service
     ports:
       - "8761:8761"
     environment:
@@ -43,12 +41,12 @@ services:
     networks:
       - payment-middleware-network
 
-  api-gateway:
+  gateway-service:
     build:
-      context: ./api-gateway
-      dockerfile: Dockerfile
-    image: api-gateway:latest
-    container_name: api-gateway
+      context: ./gateway-service
+
+    image: gateway-service:latest
+    container_name: gateway-service
     ports:
       - "8080:8080"
     environment:
